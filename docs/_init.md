@@ -48,7 +48,7 @@ Workflow({ name: "research-stack", args: "terraform aws — VPC, ECS, RDS for we
 Run `just eject` to remove this docs/ directory. The justfile, lefthook.yml, and
 other config files will remain with the language-specific recipes already added.
 
-## Design decisions (as of 2026)
+## Design decisions (as of June 2026)
 
 Why these tools were chosen. Run `/add-language` or the research-stack workflow
 to get up-to-date recommendations — these choices may be superseded.

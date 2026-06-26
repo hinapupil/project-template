@@ -82,7 +82,7 @@ Claude Code なしでのセットアップ方法は `docs/research-language.md` 
 4. 承認後、devbox.json / justfile / lefthook.yml 等を自動更新
 5. セットアップ完了後、`just eject` で `docs/` を削除
 
-言語ツールの流行り廃りは速いため、静的ガイドではなく動的調査で対応します。骨格ツール（Devbox, Just, Lefthook 等）の選定理由は `docs/_init.md` に記載していますが、これも 2026 年時点の選択であり、ワークフローで再調査可能です。
+言語ツールの流行り廃りは速いため、静的ガイドではなく動的調査で対応します。骨格ツール（Devbox, Just, Lefthook 等）の選定理由は `docs/_init.md` に記載していますが、これも 2026 年 6 月時点の選択であり、ワークフローで再調査可能です。
 
 ## 謝辞
 
