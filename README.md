@@ -1,5 +1,7 @@
 # project-template
 
+[日本語](README.ja.md)
+
 Language-agnostic project scaffold with reproducible dev environment and AI coding agent support.
 
 ## What's included
@@ -43,7 +45,7 @@ Ask your AI coding agent, or follow the guides in `docs/`:
 
 ```bash
 # With Claude Code
-claude "docs/_init.md を読んで、TypeScript プロジェクトとしてセットアップして"
+claude "Read docs/_init.md and set up this project as a TypeScript project"
 
 # Manually
 cat docs/add-typescript.md  # and follow the steps
@@ -66,12 +68,16 @@ After setup, remove the guides: `just eject`
 ├── justfile           # Task runner commands
 ├── lefthook.yml       # Git hooks (secret detection, lint, test)
 ├── AGENTS.md          # AI agent instructions (source of truth)
-├── CLAUDE.md          # → symlink to AGENTS.md
+├── CLAUDE.md          # -> symlink to AGENTS.md
 ├── .claude/           # Claude Code settings
 ├── infra/             # Infrastructure (Terraform)
 ├── docs/              # Setup guides (removable)
 └── .github/workflows/ # CI
 ```
+
+## Acknowledgements
+
+Inspired by [mizchi/project-template](https://github.com/mizchi/project-template) and [mizchi's LLM-aware TypeScript guide](https://zenn.dev/mizchi/articles/llm-aware-ts-project-starter).
 
 ## License
 
