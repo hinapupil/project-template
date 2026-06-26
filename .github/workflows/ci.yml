@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Devbox
+        uses: jetify-com/devbox-install-action@v0.12.0
+
+      - name: Run lint
+        run: devbox run just lint
+
+      - name: Run tests
+        run: devbox run just test
+
+      - name: Secret scan
+        run: devbox run gitleaks detect --no-banner

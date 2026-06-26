@@ -1,0 +1,24 @@
+# Environment
+.env
+.env.*
+!.env.example
+.direnv/
+.devbox/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+*.tfvars
+!*.tfvars.example
+crash.log
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo

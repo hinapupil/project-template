@@ -1,0 +1,14 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/main/.schema/devbox.schema.json",
+  "packages": [
+    "git",
+    "just",
+    "lefthook",
+    "gitleaks"
+  ],
+  "shell": {
+    "init_hook": [
+      "lefthook install"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+pre-commit:
+  parallel: true
+  commands:
+    gitleaks:
+      run: gitleaks git --staged --no-banner
+
+pre-push:
+  parallel: true
+  commands:
+    lint:
+      run: just lint
+    test:
+      run: just test

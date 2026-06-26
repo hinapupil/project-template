@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(just *)",
+      "Bash(devbox *)",
+      "Bash(gitleaks *)",
+      "Bash(lefthook *)"
+    ]
+  }
+}
