@@ -41,21 +41,20 @@ just setup
 
 ## Adding a language
 
-Ask your AI coding agent, or follow the guides in `docs/`:
+Instead of static guides, this template uses a **Deep Research workflow** to find
+current best practices at setup time:
 
 ```bash
-# With Claude Code
-claude "Read docs/_init.md and set up this project as a TypeScript project"
-
-# Manually
-cat docs/add-typescript.md  # and follow the steps
+# With Claude Code — researches and sets up in one step
+claude "/add-language typescript — CLI tool with heavy testing"
+claude "/add-language python — web API with FastAPI"
+claude "/add-language go — microservice with OpenTelemetry"
 ```
 
-Available guides:
-- `docs/add-typescript.md` — TypeScript + Node.js (pnpm, Biome, Vitest)
-- `docs/add-python.md` — Python (uv, Ruff, pytest)
-- `docs/add-go.md` — Go (golangci-lint)
-- `docs/add-terraform-aws.md` — Terraform + AWS (`infra/` directory)
+The workflow searches the web for current recommendations, presents choices with
+tradeoffs, and applies the setup after your approval.
+
+See `docs/research-language.md` for details, including setup without Claude Code.
 
 After setup, remove the guides: `just eject`
 
@@ -71,7 +70,7 @@ After setup, remove the guides: `just eject`
 ├── CLAUDE.md          # -> symlink to AGENTS.md
 ├── .claude/           # Claude Code settings
 ├── infra/             # Infrastructure (Terraform)
-├── docs/              # Setup guides (removable)
+├── docs/              # Setup guides + research instructions (removable)
 └── .github/workflows/ # CI
 ```
 

@@ -41,21 +41,18 @@ just setup
 
 ## 言語の追加
 
-AI コーディングエージェントに聞くか、`docs/` のガイドに従ってください:
+静的なガイドの代わりに、**Deep Research ワークフロー**でセットアップ時点の最新ベストプラクティスを調査します:
 
 ```bash
-# Claude Code で
-claude "docs/_init.md を読んで、TypeScript プロジェクトとしてセットアップして"
-
-# 手動で
-cat docs/add-typescript.md  # 手順に従う
+# Claude Code で — 調査とセットアップを一気に実行
+claude "/add-language typescript — CLI ツールを作りたい、テストは厚めに"
+claude "/add-language python — FastAPI で Web API"
+claude "/add-language go — OpenTelemetry 付きマイクロサービス"
 ```
 
-利用可能なガイド:
-- `docs/add-typescript.md` — TypeScript + Node.js（pnpm, Biome, Vitest）
-- `docs/add-python.md` — Python（uv, Ruff, pytest）
-- `docs/add-go.md` — Go（golangci-lint）
-- `docs/add-terraform-aws.md` — Terraform + AWS（`infra/` ディレクトリ）
+ワークフローが Web で最新の推奨事項を検索し、トレードオフ付きで選択肢を提示。承認後にセットアップを適用します。
+
+Claude Code なしでのセットアップ方法は `docs/research-language.md` を参照。
 
 セットアップ後、ガイドを削除: `just eject`
 
@@ -71,20 +68,21 @@ cat docs/add-typescript.md  # 手順に従う
 ├── CLAUDE.md          # → AGENTS.md へのシンボリックリンク
 ├── .claude/           # Claude Code 設定
 ├── infra/             # インフラ（Terraform）
-├── docs/              # セットアップガイド（削除可能）
+├── docs/              # セットアップガイド + リサーチ手順（削除可能）
 └── .github/workflows/ # CI
 ```
 
 ## 仕組み
 
-このテンプレートは静的なボイラープレートではなく、**LLM が読んで拡張できるガイドライン**を同梱しています。
+このテンプレートは静的なボイラープレートではなく、**セットアップ時に最新のベストプラクティスを動的に調査する仕組み**を備えています。
 
 1. `nix flake init` または `git clone` で最小限の骨格を取得
-2. `docs/_init.md` を AI エージェントに渡すと、プロジェクトの文脈に合わせて環境をセットアップ
-3. `docs/add-*.md` で言語固有のツールチェーンを追加
-4. セットアップ完了後、`just eject` で `docs/` を削除
+2. `/add-language` コマンドが Deep Research ワークフローを実行し、その時点での最新ツール・設定を調査
+3. 調査結果をトレードオフ付きで提示し、ユーザーが選択
+4. 承認後、devbox.json / justfile / lefthook.yml 等を自動更新
+5. セットアップ完了後、`just eject` で `docs/` を削除
 
-ガイドラインには「どう使うか」だけでなく「なぜその選択をしたか」を記載しているため、AI エージェントがツールのバージョンアップや新しいベストプラクティスに自律的に対応できます。
+言語ツールの流行り廃りは速いため、静的ガイドではなく動的調査で対応します。骨格ツール（Devbox, Just, Lefthook 等）の選定理由は `docs/_init.md` に記載していますが、これも 2026 年時点の選択であり、ワークフローで再調査可能です。
 
 ## 謝辞
 

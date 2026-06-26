@@ -19,23 +19,39 @@ After setup is complete, run `just eject` to remove this docs/ directory.
 
 ## Adding a language
 
-Choose the appropriate guide:
-- TypeScript/Node.js → [add-typescript.md](add-typescript.md)
-- Python → [add-python.md](add-python.md)
-- Go → [add-go.md](add-go.md)
+This template does not ship static language guides. Use the Deep Research workflow
+to find current best practices:
+
+```bash
+# In Claude Code
+/add-language typescript — CLI tool with heavy testing
+```
+
+Or run the workflow directly:
+
+```
+Workflow({ name: "research-stack", args: "typescript — CLI tool" })
+```
+
+See [research-language.md](research-language.md) for details.
 
 ## Adding infrastructure
 
-- AWS with Terraform → [add-terraform-aws.md](add-terraform-aws.md)
+Use the same research approach for infrastructure setup:
+
+```
+Workflow({ name: "research-stack", args: "terraform aws — VPC, ECS, RDS for web app" })
+```
 
 ## After setup
 
 Run `just eject` to remove this docs/ directory. The justfile, lefthook.yml, and
 other config files will remain with the language-specific recipes already added.
 
-## Design decisions
+## Design decisions (as of 2026)
 
-Why these tools were chosen (so you can make informed decisions when extending):
+Why these tools were chosen. Run `/add-language` or the research-stack workflow
+to get up-to-date recommendations — these choices may be superseded.
 
 - **Devbox over raw Nix**: Same reproducibility, but team members don't need to learn Nix syntax. `devbox add <pkg>` is intuitive.
 - **Just over Make/Taskfile**: Command runner, not a build system. No tab-sensitivity issues. Cross-platform. Simple syntax.
